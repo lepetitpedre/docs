@@ -1,11 +1,9 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
   "name": "PriceEdge",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
-  "name":"Peder,
   "favicon": "/favicon.png",
   "colors": {
     "primary": "#12A7D3",
