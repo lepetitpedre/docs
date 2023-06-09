@@ -1,16 +1,5 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "Price Edge",
-  "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
-  },
-  "favicon": "/favicon.png",
-  "colors": {
-    "primary": "#12A7D3",
-    "light": "#81D7F7",
-    "dark": "#004E7A"
-  },
+  "name": "Price Edge"
   "topbarLinks": [
     {
       "name": "Documentation",
