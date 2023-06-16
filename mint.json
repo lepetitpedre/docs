@@ -10,7 +10,7 @@
     "name": "Login",
     "url": "https://priceedge.eu/login"
   },
-  "tabs": [
+  "//tabs": [
     {
       "name": "API Reference",
       "url": "api-reference"
@@ -22,15 +22,40 @@
     "light":"#E7556A"
   },
 
+  "anchors": [
+    {
+        "name": "Quick Start",
+        "icon": "bolt",
+        "url": "api-references"
+    },
+    {
+        "name": "API Reference",
+        "icon": "terminal",
+        "url": "content"
+    },
+    {
+        "name": "FAQ",
+        "icon": "question",
+        "url": "faq"
+    }
+],
+
+"topAnchor": {
+  "name": "Overview",
+  "icon": "poo-storm",
+  "url": "introduction"
+},
+
+
 
   "navigation": [
     {
-      "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
+      "group": "Overview",
+      "pages": ["introduction"]
     },
     {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
+      "group": "Quick Start",
+      "pages": ["quickstart/quickstart", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
     },
     {
       "group": "API Documentation",
