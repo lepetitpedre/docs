@@ -1,14 +1,14 @@
 {
-  "name": "Price Edge",
-  "topbarLinks": [
+  "name": "PriceEdge",
+  "//topbarLinks": [
     {
-      "name": "Documentation",
-      "url": "https://mintlify.com/docs"
+      "name": "Login",
+      "url": "https://priceedge.eu/login"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Login",
+    "url": "https://priceedge.eu/login"
   },
   "tabs": [
     {
@@ -16,6 +16,13 @@
       "url": "api-reference"
     }
   ],
+  "colors":{
+    "primary": "#E7556A",
+    "dark":"#E7556A",
+    "light":"#E7556A"
+  },
+
+
   "navigation": [
     {
       "group": "Get Started",
