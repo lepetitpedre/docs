@@ -54,7 +54,7 @@
     },
     {
       "group": "Quick Start",
-      "pages": ["quickstart/quickstart", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
+      "pages": ["quickstart/quickstart-1", "quickstart/quickstart-2"]
     },
     {
       "group": "API Documentation",
