@@ -40,6 +40,8 @@
     }
 ],
 
+"favicon": "/favicon.svg",
+
 "topAnchor": {
   "name": "Overview",
   "icon": "poo-storm"
