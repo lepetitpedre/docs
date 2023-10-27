@@ -1,137 +1,65 @@
 ---
-title: "User and API URL - test the connection"
-description: "Test your connection."
+title: "First connection"
+description: "Test your connection by getting the structure of the Item table."
 icon: circle-1
 ---
 
-### Username
+### Username and password
 
-From the PriceEdge team you should have received a username. WE 
-
-### API URL
+From the PriceEdge team or you should have received a username. The password, if not already set, you set via the link in mail you should have received. 
 
 
+<Note>In this example the username is pricing@example.com and **_MYPASSWORD123_ as the password</Note>
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
-</ResponseField>
+### API url
+The`{api_url}` is **your company specific url** + priceedge.eu/papi/api. 
 
-<ResponseField name="new_user_group" type="boolean">
-  Indicates whether a new user group was created.
-</ResponseField>
+If your company url is **yourdomain** then the API-url would be `yourdomain.priceedge.eu/papi/api`
 
-<ResponseField name="user_group" type="object">
 
-The contents of the user group
+<Note>In this example the API-url is  is **yourdomain.priceedge.eu/papi/api**</Note>
 
-<Expandable title="Toggle object">
 
-<ResponseField name="team_id" type="number">
-  This is the internal ID for this user group. You don't need to record this information, since
-  you will not need to use it.
-</ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be used to identify
-  which user group is viewing the dashboard. You should save this on your end to use when rendering
-  an embedded dashboard.
-</ResponseField>
+### First request - GET item strucutre 
+<Note>Don' froget to change to you domain, username and password</Note>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
-</ResponseField>
-
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
-</ResponseField>
-
-<ResponseField name="properties" type="JSON or null">
-  This is the properties object if it was provided in the request body
-</ResponseField>
-
-</Expandable>
-
-</ResponseField>
-
-<RequestExample>
-
-```bash Example Request
-curl --location 'https://yourdomain.priceedge.eu/papi/api/tables/item' \
---header 'Authorization: ApiKey username:password' \
+```http HTTP Example
+GET /papi/api/tables/item
+Host: yourdomain.priceedge.eu
+Authorization: ApiKey pricing@example.com:MYPASSWORD123
+Content-Type: application/json
+```
+```bash cURL Example
+curl 'https://yourdomain.priceedge.eu/papi/api/tables/item' \
+--header 'Authorization: ApiKey pricing@example.com:MYPASSWORD123' \
 --header 'Content-Type: application/json'
 ```
 
-</RequestExample>
+<Warning>ApiKey is case sensitive and note the : between username and password</Warning>
 
-<ResponseExample>
+## Expected Response
+The return body will contain a lot of information but for now we are happy that you can connect. Let's move on to next step. 
 
-```json Response
+
+The returned data.
+```JSON
 {
     "Data": [
         {
-            "column_id": 1,
-            "name": "Number",
-            "typeName": "nvarchar",
-            "max_length": 128,
-            "precision": 0,
-            "scale": 0,
-            "is_nullable": false,
-            "default_value": null,
-            "is_unique": true,
-            "is_primary_key": true,
-            "enableInABC": null,
-            "typeName_display": "nvarchar(128)",
-            "precision_display": "128",
-            "table_name": "Item",
-            "DATA_TYPE": "Text",
-            "FORMATTING": "",
-            "ALIGN": "Left",
-            "ViewSecurityRightID": null,
-            "EditSecurityRightID": null,
-            "EditTableSecurityRightID": "dataadmin-item_edit",
-            "canEdit": false,
-            "IsKey": true,
-            "Condition": "and Number = '@Data.Number~'"
-        },
-        {
-            "column_id": 2,
-            "name": "Name",
-            "typeName": "nvarchar",
-            "max_length": 1000,
-            "precision": 0,
-            "scale": 0,
-            "is_nullable": false,
-            "default_value": null,
-            "is_unique": null,
-            "is_primary_key": false,
-            "enableInABC": null,
-            "typeName_display": "nvarchar(1000)",
-            "precision_display": "1000",
-            "table_name": "Item",
-            "DATA_TYPE": "Text",
-            "FORMATTING": "",
-            "ALIGN": "Left",
-            "ViewSecurityRightID": null,
-            "EditSecurityRightID": null,
-            "EditTableSecurityRightID": "dataadmin-item_edit",
-            "canEdit": true,
-            "IsKey": false,
-            "Condition": "and Number = '@Data.Number~'"
-        },
-        {
-            "column_id": 3,
-            "name": "SearchName",
-            "typeName": "nvarchar",
-            "max_length": 1024,
-            "precision": 0,
-            "scale": 0,
+            "column_id": 12,
+            "name": "_dtLastModifiedDate",
+            "typeName": "datetime2",
+            "max_length": 8,
+            "precision": 27,
+            "scale": 7,
             "is_nullable": true,
-            "default_value": null,
+            "default_value": "(sysdatetime())",
             "is_unique": null,
             "is_primary_key": false,
             "enableInABC": null,
-            "typeName_display": "nvarchar(1024)",
-            "precision_display": "1024",
+            "typeName_display": "datetime2",
+            "precision_display": null,
             "table_name": "Item",
             "DATA_TYPE": "Text",
             "FORMATTING": "",
@@ -141,57 +69,8 @@ curl --location 'https://yourdomain.priceedge.eu/papi/api/tables/item' \
             "EditTableSecurityRightID": "dataadmin-item_edit",
             "canEdit": true,
             "IsKey": false,
-            "Condition": "and Number = '@Data.Number~'"
-        },
-        {
-            "column_id": 4,
-            "name": "CostForPricing",
-            "typeName": "decimal",
-            "max_length": 9,
-            "precision": 18,
-            "scale": 4,
-            "is_nullable": true,
-            "default_value": null,
-            "is_unique": null,
-            "is_primary_key": false,
-            "enableInABC": null,
-            "typeName_display": "decimal(18,4)",
-            "precision_display": "18,4",
-            "table_name": "Item",
-            "DATA_TYPE": "Number",
-            "FORMATTING": "###,###,##0.00",
-            "ALIGN": "Right",
-            "ViewSecurityRightID": "dataadmin-item_CostForPricing_view",
-            "EditSecurityRightID": "dataadmin-item_CostForPricing_edit",
-            "EditTableSecurityRightID": "dataadmin-item_edit",
-            "canEdit": true,
-            "IsKey": false,
-            "Condition": "and Number = '@Data.Number~'"
-        },
-        {
-            "column_id": 5,
-            "name": "Description",
-            "typeName": "nvarchar",
-            "max_length": 0,
-            "precision": 0,
-            "scale": 0,
-            "is_nullable": true,
-            "default_value": null,
-            "is_unique": null,
-            "is_primary_key": false,
-            "enableInABC": null,
-            "typeName_display": "nvarchar(0)",
-            "precision_display": "0",
-            "table_name": "Item",
-            "DATA_TYPE": "Text",
-            "FORMATTING": "",
-            "ALIGN": "Left",
-            "ViewSecurityRightID": null,
-            "EditSecurityRightID": null,
-            "EditTableSecurityRightID": "dataadmin-item_edit",
-            "canEdit": true,
-            "IsKey": false,
-            "Condition": "and Number = '@Data.Number~'"
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
         },
         {
             "column_id": 6,
@@ -216,13 +95,40 @@ curl --location 'https://yourdomain.priceedge.eu/papi/api/tables/item' \
             "EditTableSecurityRightID": "dataadmin-item_edit",
             "canEdit": true,
             "IsKey": false,
-            "Condition": "and Number = '@Data.Number~'"
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
         },
         {
-            "column_id": 7,
-            "name": "cd_PriceRelationGroup",
-            "typeName": "varchar",
-            "max_length": 20,
+            "column_id": 4,
+            "name": "CostForPricing",
+            "typeName": "decimal",
+            "max_length": 9,
+            "precision": 18,
+            "scale": 4,
+            "is_nullable": true,
+            "default_value": null,
+            "is_unique": null,
+            "is_primary_key": false,
+            "enableInABC": null,
+            "typeName_display": "decimal(18,4)",
+            "precision_display": "18,4",
+            "table_name": "Item",
+            "DATA_TYPE": "Number",
+            "FORMATTING": "###,###,##0.00",
+            "ALIGN": "Right",
+            "ViewSecurityRightID": "dataadmin-item_CostForPricing_view",
+            "EditSecurityRightID": "dataadmin-item_CostForPricing_edit",
+            "EditTableSecurityRightID": "dataadmin-item_edit",
+            "canEdit": true,
+            "IsKey": false,
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
+        },
+        {
+            "column_id": 5,
+            "name": "Description",
+            "typeName": "nvarchar",
+            "max_length": 0,
             "precision": 0,
             "scale": 0,
             "is_nullable": true,
@@ -230,8 +136,8 @@ curl --location 'https://yourdomain.priceedge.eu/papi/api/tables/item' \
             "is_unique": null,
             "is_primary_key": false,
             "enableInABC": null,
-            "typeName_display": "fk(PriceRelationGroup.Code)",
-            "precision_display": "20",
+            "typeName_display": "nvarchar(0)",
+            "precision_display": "0",
             "table_name": "Item",
             "DATA_TYPE": "Text",
             "FORMATTING": "",
@@ -241,57 +147,8 @@ curl --location 'https://yourdomain.priceedge.eu/papi/api/tables/item' \
             "EditTableSecurityRightID": "dataadmin-item_edit",
             "canEdit": true,
             "IsKey": false,
-            "Condition": "and Number = '@Data.Number~'"
-        },
-        {
-            "column_id": 8,
-            "name": "InsertDate",
-            "typeName": "datetime",
-            "max_length": 8,
-            "precision": 23,
-            "scale": 3,
-            "is_nullable": false,
-            "default_value": "(getdate())",
-            "is_unique": null,
-            "is_primary_key": false,
-            "enableInABC": null,
-            "typeName_display": "datetime",
-            "precision_display": null,
-            "table_name": "Item",
-            "DATA_TYPE": "Date",
-            "FORMATTING": "Short Date",
-            "ALIGN": "Right",
-            "ViewSecurityRightID": null,
-            "EditSecurityRightID": null,
-            "EditTableSecurityRightID": "dataadmin-item_edit",
-            "canEdit": true,
-            "IsKey": false,
-            "Condition": "and Number = '@Data.Number~'"
-        },
-        {
-            "column_id": 9,
-            "name": "NeedsPrice",
-            "typeName": "bit",
-            "max_length": 1,
-            "precision": 1,
-            "scale": 0,
-            "is_nullable": false,
-            "default_value": "(isnull([dbo].[usfGetSystemSetting]('DefaultNeedsPrice'),(0)))",
-            "is_unique": null,
-            "is_primary_key": false,
-            "enableInABC": null,
-            "typeName_display": "bit",
-            "precision_display": null,
-            "table_name": "Item",
-            "DATA_TYPE": "Number",
-            "FORMATTING": "True/False",
-            "ALIGN": "Right",
-            "ViewSecurityRightID": null,
-            "EditSecurityRightID": null,
-            "EditTableSecurityRightID": "dataadmin-item_edit",
-            "canEdit": true,
-            "IsKey": false,
-            "Condition": "and Number = '@Data.Number~'"
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
         },
         {
             "column_id": 10,
@@ -316,7 +173,138 @@ curl --location 'https://yourdomain.priceedge.eu/papi/api/tables/item' \
             "EditTableSecurityRightID": "dataadmin-item_edit",
             "canEdit": true,
             "IsKey": false,
-            "Condition": "and Number = '@Data.Number~'"
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
+        },
+        {
+            "column_id": 8,
+            "name": "InsertDate",
+            "typeName": "datetime",
+            "max_length": 8,
+            "precision": 23,
+            "scale": 3,
+            "is_nullable": false,
+            "default_value": "(getdate())",
+            "is_unique": null,
+            "is_primary_key": false,
+            "enableInABC": null,
+            "typeName_display": "datetime",
+            "precision_display": null,
+            "table_name": "Item",
+            "DATA_TYPE": "Date",
+            "FORMATTING": "Short Date",
+            "ALIGN": "Right",
+            "ViewSecurityRightID": null,
+            "EditSecurityRightID": null,
+            "EditTableSecurityRightID": "dataadmin-item_edit",
+            "canEdit": true,
+            "IsKey": false,
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
+        },
+        {
+            "column_id": 2,
+            "name": "Name",
+            "typeName": "nvarchar",
+            "max_length": 1000,
+            "precision": 0,
+            "scale": 0,
+            "is_nullable": true,
+            "default_value": null,
+            "is_unique": null,
+            "is_primary_key": false,
+            "enableInABC": null,
+            "typeName_display": "nvarchar(1000)",
+            "precision_display": "1000",
+            "table_name": "Item",
+            "DATA_TYPE": "Text",
+            "FORMATTING": "",
+            "ALIGN": "Left",
+            "ViewSecurityRightID": null,
+            "EditSecurityRightID": null,
+            "EditTableSecurityRightID": "dataadmin-item_edit",
+            "canEdit": true,
+            "IsKey": false,
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
+        },
+        {
+            "column_id": 9,
+            "name": "NeedsPrice",
+            "typeName": "bit",
+            "max_length": 1,
+            "precision": 1,
+            "scale": 0,
+            "is_nullable": false,
+            "default_value": "(isnull([dbo].[usfGetSystemSetting]('DefaultNeedsPrice'),(0)))",
+            "is_unique": null,
+            "is_primary_key": false,
+            "enableInABC": null,
+            "typeName_display": "bit",
+            "precision_display": null,
+            "table_name": "Item",
+            "DATA_TYPE": "Number",
+            "FORMATTING": "True/False",
+            "ALIGN": "Right",
+            "ViewSecurityRightID": null,
+            "EditSecurityRightID": null,
+            "EditTableSecurityRightID": "dataadmin-item_edit",
+            "canEdit": true,
+            "IsKey": false,
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
+        },
+        {
+            "column_id": 1,
+            "name": "Number",
+            "typeName": "nvarchar",
+            "max_length": 128,
+            "precision": 0,
+            "scale": 0,
+            "is_nullable": false,
+            "default_value": null,
+            "is_unique": true,
+            "is_primary_key": true,
+            "enableInABC": null,
+            "typeName_display": "nvarchar(128)",
+            "precision_display": "128",
+            "table_name": "Item",
+            "DATA_TYPE": "Text",
+            "FORMATTING": "",
+            "ALIGN": "Left",
+            "ViewSecurityRightID": null,
+            "EditSecurityRightID": null,
+            "EditTableSecurityRightID": "dataadmin-item_edit",
+            "canEdit": false,
+            "IsKey": true,
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
+        },
+        {
+            "column_id": 3,
+            "name": "SearchName",
+            "typeName": "nvarchar",
+            "max_length": 1024,
+            "precision": 0,
+            "scale": 0,
+            "is_nullable": true,
+            "default_value": null,
+            "is_unique": null,
+            "is_primary_key": false,
+            "enableInABC": null,
+            "typeName_display": "nvarchar(1024)",
+            "precision_display": "1024",
+            "table_name": "Item",
+            "DATA_TYPE": "Text",
+            "FORMATTING": "",
+            "ALIGN": "Left",
+            "ViewSecurityRightID": null,
+            "EditSecurityRightID": null,
+            "EditTableSecurityRightID": "dataadmin-item_edit",
+            "canEdit": true,
+            "IsKey": false,
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
         },
         {
             "column_id": 11,
@@ -341,37 +329,12 @@ curl --location 'https://yourdomain.priceedge.eu/papi/api/tables/item' \
             "EditTableSecurityRightID": "dataadmin-item_edit",
             "canEdit": true,
             "IsKey": false,
-            "Condition": "and Number = '@Data.Number~'"
-        },
-        {
-            "column_id": 12,
-            "name": "_dtLastModifiedDate",
-            "typeName": "datetime2",
-            "max_length": 8,
-            "precision": 27,
-            "scale": 7,
-            "is_nullable": true,
-            "default_value": "(sysdatetime())",
-            "is_unique": null,
-            "is_primary_key": false,
-            "enableInABC": null,
-            "typeName_display": "datetime2",
-            "precision_display": null,
-            "table_name": "Item",
-            "DATA_TYPE": "Text",
-            "FORMATTING": "",
-            "ALIGN": "Left",
-            "ViewSecurityRightID": null,
-            "EditSecurityRightID": null,
-            "EditTableSecurityRightID": "dataadmin-item_edit",
-            "canEdit": true,
-            "IsKey": false,
-            "Condition": "and Number = '@Data.Number~'"
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
         }
     ],
     "Errors": [],
     "Succeeded": true
 }
-```
 
-</ResponseExample>
+```

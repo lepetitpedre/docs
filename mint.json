@@ -56,7 +56,7 @@
     },
     {
       "group": "Quick Start",
-      "pages": ["quickstart/quickstart-1", "quickstart/quickstart-2"]
+      "pages": ["quickstart/quickstart-1", "quickstart/quickstart-2", "quickstart/quickstart-3"]
     },
     {
       "group": "API Documentation",
