@@ -1,18 +1,21 @@
 ---
 title: "Authentication"
-description: "Test your connection by getting the structure of the Item table."
+description: "There are two ways of authentication: Bearer token and ApiKey"
 icon: circle-1
 ---
 
-## API url
+### API url
 The`{api_url}` is **your company specific url** + priceedge.eu/papi/api. 
 
 If your company url is **yourdomain** then the API-url would be `yourdomain.priceedge.eu/papi/api`
 
 
-<Note>In this example the API-url is  is **yourdomain.priceedge.eu/papi/api**</Note>
+<Note>In examples the API-url is **yourdomain.priceedge.eu/papi/api**</Note>
 
-There are two ways of authentication: bearer token och APIKey
+### Username and password
+
+From the PriceEdge team or your system owner you should have received a username. The password, if not already set, you set via the link in mail you should have received. These are used for ApiKey auth and to get bearer token.
+
 ### Bearer token
 Authentication is done using a Bearer Token, particular type of access 
 token, with the property that anyone can use the token. In other words, 
@@ -35,7 +38,7 @@ can be used to obtain the Bearer Token using the username/password or the
 refresh token
 
 
-## OBTAIN SECURITY TOKEN
+### OBTAIN SECURITY TOKEN
 
 Application has no security token, needs to make a secure call with the 
 user and password to the **PriceEdge API** to get a valid token. 
@@ -82,17 +85,23 @@ token endpoint with the user name and password.
 a new **access_token** when that will expire. This will expire after a 
 longer period than the access_token (suggested are 20 days or even more) 
 
-### Username and password
 
-From the PriceEdge team or you should have received a username. The password, if not already set, you set via the link in mail you should have received. 
 
 
 <Note>In this example the username is pricing@example.com and **_MYPASSWORD123_ as the password</Note>
 
+### First request - GET item metadata Bearer Token
+
+```http HTTP Example
+GET /{api_url}/api/tables/item
+
+Content-Type: application/json
+Authorization: Bearer {token}
+client_id: {unique client id}
+```
 
 
-
-### First request - GET item metadata
+### First request - GET item metadata ApiKey
 <Note>Don' forget to change to you domain, username and password</Note>
 
 ```http HTTP Example
