@@ -26,12 +26,12 @@
     {
         "name": "Quick Start",
         "icon": "bolt",
-        "url": "api-references"
+        "url": "https://developer.priceedge.eu/quickstart"
     },
     {
         "name": "API Documentation",
         "icon": "terminal",
-        "url": "content"
+        "url": "https://developer.priceedge.eu/api"
     },
     {
         "name": "FAQ",
