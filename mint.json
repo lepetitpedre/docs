@@ -20,24 +20,7 @@
     "primary": "#E7556A",
     "dark":"#E7556A",
     "light":"#E7556A"
-  },
-
-  "anchors": [
-    {
-        "name": "Quick Start",
-        "icon": "bolt",
-        "url": "https://developer.priceedge.eu/quickstart/quickstart-1"
-    },
-    {
-        "name": "API Documentation",
-        "icon": "terminal",
-        "url": "https://developer.priceedge.eu/api"
-    },
-    {
-        "name": "FAQ",
-        "icon": "question",
-        "url": "https://developer.priceedge.eu/faq"
-    }
+  }
 ],
 
 "favicon": "/favicon.svg",
