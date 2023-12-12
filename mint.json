@@ -35,7 +35,7 @@
 
   "navigation": [
     {
-      "group": "Overview",
+      "group": "Start",
       "pages": ["introduction"]
     },
     {
