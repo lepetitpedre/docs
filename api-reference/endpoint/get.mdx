@@ -3,3 +3,68 @@ title: "Set and get data from tables"
 description: "..."
 icon: rotate-right
 ---
+
+
+POST /{api_url}/api/tables/{TableName} HTTP/1.1
+
+Content-Type: application/json
+Authorization: Bearer {token}
+client_id: {unique client id}
+
+{
+	"page": 1,
+	"nrOfRecords": 100,
+	"filters": [
+			{
+				"columnName": "Material", "op":"=", "value": "Steel"
+			}
+		],
+	"fields": ["cd_ItemNumber", "Material", "Width", "Supplier"],
+	"orderby": ["cd_ItemNumber"]
+}
+~~~~
+
+The response for a successful request would be:
+
+~~~~
+{
+    "Data": {
+        "data": [
+            {
+                "cd_ItemNumber": "ABC123",
+                "Material": "Steel",
+                "Width": 10,
+                "Supplier": ""
+            }
+        ],
+        "totalNumberOfRecords": 1
+    },
+    "Errors": [],
+    "Succeeded": true
+}
+~~~~
+
+
+## ACTION: SET DATA
+
+Use this action to add or update values in tables. Limit to 
+1000 rows per request.
+
+Use the verb **PUT**
+
+Example:
+
+~~~~
+PUT /{api_url}/api/tables/{TableName} HTTP/1.1
+
+Content-Type: application/json
+Authorization: Bearer {token}
+client_id: {unique client id}
+
+[{
+    "cd_ItemNumber": "ABC123",
+    "Material": "Steel",
+    "Width": 10,
+    "Supplier": "Supplier Name"
+}]
+~~~~
