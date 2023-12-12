@@ -38,7 +38,7 @@ can be used to obtain the Bearer Token using the username/password or the
 refresh token
 
 
-### OBTAIN SECURITY TOKEN
+### Obtain Bearer token
 
 Application has no security token, needs to make a secure call with the 
 user and password to the **PriceEdge API** to get a valid token. 
@@ -55,7 +55,7 @@ grant_type=password&username={username}&password={user password}& client_id={uni
 The result will have the following format:
 
 ~~~~
-  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6InNwYXJrd2FyZVxccmF6dmFucGFpIiwicm9sZSI6WyJ1c2VyIiwiYWRtaW4iXSwic3ViIjoic3Bhcmt3YXJlXFxyYXp2YW5wYWkiLCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJkNjE1ZTA1ZTg4YTc0ZmQ3OGQ1ZGUwM2U5NGRhMDI0NSIsImV4cCI6MTQ2OTAwODI0MCwibmJmIjoxNDY5MDA4MTgwfQ.Ps8NuXgMvPP3nXdz0usLVEvmiZMbp84x_d9Rwhlb2kc",
+{ "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6InNwYXJrd2FyZVxccmF6dm.......9sZSI6WyJ1c2VyIiwiYWRtaW4iXSwic3ViIjoic3Bhcmt3YXJlXFxyYXp2YW5wYWkiLCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJjE1ZTA1ZTg4YTc0ZmQ3OGQ1ZGUwM2U5NGRhMDI0NSIsImV4cCI6MTQ2OTAwODI0MCwibmJmIjoxNDY5MDA4MTgwfQ.Ps8NuXgMvPP3nXdz0usLVEvmiZMbp84x_d9Rwhlb2kc",
   "token_type": "bearer",
   "expires_in": 59,
   "refresh_token": "5a8a3c59c0844cda947e71b3d613d526",
