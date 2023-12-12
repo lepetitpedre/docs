@@ -22,7 +22,7 @@
     "light":"#E7556A"
   },  
 
-"favicon": "https://cdn.priceedge.eu/price/images/logo-pink.svg",
+"favicon": "/logo/logo-pink.svg",
 
 "topAnchor": {
   "name": "Overview",
