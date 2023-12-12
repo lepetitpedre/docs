@@ -43,10 +43,6 @@
       "pages": ["quickstart/quickstart-1", "quickstart/quickstart-2", "quickstart/quickstart-3"]
     },
     {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
       "group": "Endpoint Examples",
       "pages": [
         "api-reference/endpoint/get",
