@@ -3,7 +3,8 @@ title: "Set and get data from tables"
 description: "..."
 icon: rotate-right
 ---
-PP
+On most end-point you could do a GET to get the table strucutre. Just like we saw in the quick start. 
+
 ~~~~
 POST /{api_url}/api/tables/{TableName} HTTP/1.1
 
@@ -43,6 +44,8 @@ The response for a successful request would be:
     "Succeeded": true
 }
 ~~~~
+
+For op: operator possible values are: ">", "<", "=", "!=", "containsAny" (Then comma separated list of filter in value, example: "value": "Steel,Copper,Alu"), 
 
 
 ## ACTION: SET DATA
