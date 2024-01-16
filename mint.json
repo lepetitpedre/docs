@@ -41,9 +41,9 @@
       "pages": ["quickstart/quickstart-1", "quickstart/quickstart-2", "quickstart/quickstart-3"]
     },
     {
-      "group": "Endpoints",
+      "group": "Endpoint Examples",
       "pages": [
-        ["api-reference/endpoint/get", "api-reference/endpoint/update"]
+        "api-reference/endpoint/get", "api-reference/endpoint/update"
       ]
     }
   ],
