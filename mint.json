@@ -45,6 +45,12 @@
       "pages": [
         "api-reference/endpoint/get", "api-reference/endpoint/update"
       ]
+    },
+        {
+      "group": "Webhooks",
+      "pages": [
+        "webhook/webhook"
+      ]
     }
   ],
   "footerSocials": {
