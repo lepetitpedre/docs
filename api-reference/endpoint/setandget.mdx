@@ -53,23 +53,35 @@ The response for a successful request would be
     "Succeeded": true
 }
 ```
-<Card title="Filter options" icon="filters" iconType="duotone" color="#ca8b04">
-Filter Options: 
+```Http
 For op: operator possible values are: 
 ">",
 "<", 
 "=", 
 "!=",
-"containsAny" 
-Then comma separated list of filter in value, example: "value": "Steel,Copper,Alu"
-</Card>
-
+"<=",
+">=",
+"containsAny"  (Then comma separated list of filter in value, example: "value": "Steel,Copper,Alu")
+```
 
 
 
 ``` Http
+You can also add several filter, example:
+{
+	"page": 1,
+	"nrOfRecords": 100,
+	"filters": [
+			{
+				"columnName": "CostForPricing", "op":"!=", "value": "38"
+			},
+            {
+				"columnName": "CostForPricing", "op":"<", "value": "40"
+			}
 
+		]
 
+}
 ```
 
 ## SET DATA
