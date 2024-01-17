@@ -43,7 +43,7 @@
     {
       "group": "Endpoint Examples",
       "pages": [
-        "api-reference/endpoint/get", "api-reference/endpoint/update"
+        "api-reference/endpoint/setandget", "api-reference/endpoint/tables"
       ]
     },
         {
