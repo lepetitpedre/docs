@@ -10,6 +10,53 @@ It is an event-driven approach that ensures a service provider can send the righ
 ## How it works
 
 When an event is fired inside Price Edge that a webhook is registered to, a request will be sent to the registered endpoint with the following signature
+```http
+POST {REGISTERED ENDPOINT} HTTP/1.1
+x-priceedge-webhook-signature: {SHA512 Signature}
+content-type: application/json
+
+{
+	"eventType": "change",
+	"eventTime": "2023-06-14 15:54:10",
+	"eventId": "3DD64E28-4455-40C9-BE02-DEB7D5E39B76",
+	"source": "table",
+	"sourceObject": "Extension_Factors"
+}
+
+OR
+
+{
+	"eventType": "change",
+	"eventTime": "2023-06-14 15:54:10",
+	"eventId": "3DD64E28-4455-40C9-BE02-DEB7D5E39B76",
+	"source": "pepe",
+	"sourceObject": "NextRRP"
+}
+
+OR
+{
+  "eventType": "change",
+  "eventTime": "2023-06-22 16:59:14",
+  "eventId": "13069F5C-EC73-437F-9842-F51C77CA01C4",
+  "source": "pepe",
+  "sourceObject": "Suggested_Price",
+  "pageNumber": 1,
+  "data": [
+    {
+      "cd_ItemNumber": "100011",
+      "cd_PriceList": "SE",
+      "Value": 127
+    },
+    {
+      "cd_ItemNumber": "100012",
+      "cd_PriceList": "NO",
+      "Value": 209.25
+    }
+	]
+}
+```
+
+## Register a new web hook
 
 ``` Http
 PUT {api_url}/api/system/webhooks
