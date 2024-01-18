@@ -1,47 +1,322 @@
 ---
-title: "Delete User"
-api: "DELETE https://api.mintlify.com/api/user"
+title: "Get Meta Data"
 description: "This endpoint deletes an existing user."
+icon:tags
 ---
 
-### Body
+### GET meta data 
+<Note>Don' forget to change to you domain, username and password</Note>
 
-<ParamField body="data_source_provided_id" type="string">
-  The data source ID provided in the data tab may be used to identify the data
-  source for the user group
-</ParamField>
-
-<ParamField body="current_token" type="string">
-  This is the current user group token you have for the user group you want to
-  delete
-</ParamField>
-
-### Response
-
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
-</ResponseField>
-
-<RequestExample>
-
-```bash Example Request
-curl --location --request DELETE 'https://api.mintlify.com/api/user' \
---header 'Content-Type: application/json' \
---header 'Authorization: Token <token>' \
---data-raw '{
-		"user_group_id": "example_1"
-		"current_token": "abcdef"
-}'
+```http HTTP Example
+HTTP /{api_url}/api/tables/item
+Authorization: ApiKey pricing@example.com:MYPASSWORD123
+Content-Type: application/json
+```
+```bash cURL Example
+curl 'https://yourdomain.priceedge.eu/papi/api/tables/item' \
+--header 'Authorization: ApiKey pricing@example.com:MYPASSWORD123' \
+--header 'Content-Type: application/json'
 ```
 
-</RequestExample>
+<Warning>ApiKey is case sensitive and note the : between username and password</Warning>
 
-<ResponseExample>
+## Expected Response
+The return body will contain a lot of information but for now we are happy that you can connect. Let's move on to next step. 
 
-```json Response
+
+The returned data.
+```JSON 
 {
-  "success": 1
+    "Data": [
+        {
+            "column_id": 12,
+            "name": "_dtLastModifiedDate",
+            "typeName": "datetime2",
+            "max_length": 8,
+            "precision": 27,
+            "scale": 7,
+            "is_nullable": true,
+            "default_value": "(sysdatetime())",
+            "is_unique": null,
+            "is_primary_key": false,
+            "enableInABC": null,
+            "typeName_display": "datetime2",
+            "precision_display": null,
+            "table_name": "Item",
+            "DATA_TYPE": "Text",
+            "FORMATTING": "",
+            "ALIGN": "Left",
+            "ViewSecurityRightID": null,
+            "EditSecurityRightID": null,
+            "EditTableSecurityRightID": "dataadmin-item_edit",
+            "canEdit": true,
+            "IsKey": false,
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
+        },
+        {
+            "column_id": 6,
+            "name": "cd_PriceGroup",
+            "typeName": "varchar",
+            "max_length": 20,
+            "precision": 0,
+            "scale": 0,
+            "is_nullable": true,
+            "default_value": null,
+            "is_unique": null,
+            "is_primary_key": false,
+            "enableInABC": null,
+            "typeName_display": "fk(PriceGroup.Code)",
+            "precision_display": "20",
+            "table_name": "Item",
+            "DATA_TYPE": "Text",
+            "FORMATTING": "",
+            "ALIGN": "Left",
+            "ViewSecurityRightID": null,
+            "EditSecurityRightID": null,
+            "EditTableSecurityRightID": "dataadmin-item_edit",
+            "canEdit": true,
+            "IsKey": false,
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
+        },
+        {
+            "column_id": 4,
+            "name": "CostForPricing",
+            "typeName": "decimal",
+            "max_length": 9,
+            "precision": 18,
+            "scale": 4,
+            "is_nullable": true,
+            "default_value": null,
+            "is_unique": null,
+            "is_primary_key": false,
+            "enableInABC": null,
+            "typeName_display": "decimal(18,4)",
+            "precision_display": "18,4",
+            "table_name": "Item",
+            "DATA_TYPE": "Number",
+            "FORMATTING": "###,###,##0.00",
+            "ALIGN": "Right",
+            "ViewSecurityRightID": "dataadmin-item_CostForPricing_view",
+            "EditSecurityRightID": "dataadmin-item_CostForPricing_edit",
+            "EditTableSecurityRightID": "dataadmin-item_edit",
+            "canEdit": true,
+            "IsKey": false,
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
+        },
+        {
+            "column_id": 5,
+            "name": "Description",
+            "typeName": "nvarchar",
+            "max_length": 0,
+            "precision": 0,
+            "scale": 0,
+            "is_nullable": true,
+            "default_value": null,
+            "is_unique": null,
+            "is_primary_key": false,
+            "enableInABC": null,
+            "typeName_display": "nvarchar(0)",
+            "precision_display": "0",
+            "table_name": "Item",
+            "DATA_TYPE": "Text",
+            "FORMATTING": "",
+            "ALIGN": "Left",
+            "ViewSecurityRightID": null,
+            "EditSecurityRightID": null,
+            "EditTableSecurityRightID": "dataadmin-item_edit",
+            "canEdit": true,
+            "IsKey": false,
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
+        },
+        {
+            "column_id": 10,
+            "name": "ImageUrl",
+            "typeName": "nvarchar",
+            "max_length": 1000,
+            "precision": 0,
+            "scale": 0,
+            "is_nullable": true,
+            "default_value": null,
+            "is_unique": null,
+            "is_primary_key": false,
+            "enableInABC": null,
+            "typeName_display": "nvarchar(1000)",
+            "precision_display": "1000",
+            "table_name": "Item",
+            "DATA_TYPE": "Text",
+            "FORMATTING": "",
+            "ALIGN": "Left",
+            "ViewSecurityRightID": null,
+            "EditSecurityRightID": null,
+            "EditTableSecurityRightID": "dataadmin-item_edit",
+            "canEdit": true,
+            "IsKey": false,
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
+        },
+        {
+            "column_id": 8,
+            "name": "InsertDate",
+            "typeName": "datetime",
+            "max_length": 8,
+            "precision": 23,
+            "scale": 3,
+            "is_nullable": false,
+            "default_value": "(getdate())",
+            "is_unique": null,
+            "is_primary_key": false,
+            "enableInABC": null,
+            "typeName_display": "datetime",
+            "precision_display": null,
+            "table_name": "Item",
+            "DATA_TYPE": "Date",
+            "FORMATTING": "Short Date",
+            "ALIGN": "Right",
+            "ViewSecurityRightID": null,
+            "EditSecurityRightID": null,
+            "EditTableSecurityRightID": "dataadmin-item_edit",
+            "canEdit": true,
+            "IsKey": false,
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
+        },
+        {
+            "column_id": 2,
+            "name": "Name",
+            "typeName": "nvarchar",
+            "max_length": 1000,
+            "precision": 0,
+            "scale": 0,
+            "is_nullable": true,
+            "default_value": null,
+            "is_unique": null,
+            "is_primary_key": false,
+            "enableInABC": null,
+            "typeName_display": "nvarchar(1000)",
+            "precision_display": "1000",
+            "table_name": "Item",
+            "DATA_TYPE": "Text",
+            "FORMATTING": "",
+            "ALIGN": "Left",
+            "ViewSecurityRightID": null,
+            "EditSecurityRightID": null,
+            "EditTableSecurityRightID": "dataadmin-item_edit",
+            "canEdit": true,
+            "IsKey": false,
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
+        },
+        {
+            "column_id": 9,
+            "name": "NeedsPrice",
+            "typeName": "bit",
+            "max_length": 1,
+            "precision": 1,
+            "scale": 0,
+            "is_nullable": false,
+            "default_value": "(isnull([dbo].[usfGetSystemSetting]('DefaultNeedsPrice'),(0)))",
+            "is_unique": null,
+            "is_primary_key": false,
+            "enableInABC": null,
+            "typeName_display": "bit",
+            "precision_display": null,
+            "table_name": "Item",
+            "DATA_TYPE": "Number",
+            "FORMATTING": "True/False",
+            "ALIGN": "Right",
+            "ViewSecurityRightID": null,
+            "EditSecurityRightID": null,
+            "EditTableSecurityRightID": "dataadmin-item_edit",
+            "canEdit": true,
+            "IsKey": false,
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
+        },
+        {
+            "column_id": 1,
+            "name": "Number",
+            "typeName": "nvarchar",
+            "max_length": 128,
+            "precision": 0,
+            "scale": 0,
+            "is_nullable": false,
+            "default_value": null,
+            "is_unique": true,
+            "is_primary_key": true,
+            "enableInABC": null,
+            "typeName_display": "nvarchar(128)",
+            "precision_display": "128",
+            "table_name": "Item",
+            "DATA_TYPE": "Text",
+            "FORMATTING": "",
+            "ALIGN": "Left",
+            "ViewSecurityRightID": null,
+            "EditSecurityRightID": null,
+            "EditTableSecurityRightID": "dataadmin-item_edit",
+            "canEdit": false,
+            "IsKey": true,
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
+        },
+        {
+            "column_id": 3,
+            "name": "SearchName",
+            "typeName": "nvarchar",
+            "max_length": 1024,
+            "precision": 0,
+            "scale": 0,
+            "is_nullable": true,
+            "default_value": null,
+            "is_unique": null,
+            "is_primary_key": false,
+            "enableInABC": null,
+            "typeName_display": "nvarchar(1024)",
+            "precision_display": "1024",
+            "table_name": "Item",
+            "DATA_TYPE": "Text",
+            "FORMATTING": "",
+            "ALIGN": "Left",
+            "ViewSecurityRightID": null,
+            "EditSecurityRightID": null,
+            "EditTableSecurityRightID": "dataadmin-item_edit",
+            "canEdit": true,
+            "IsKey": false,
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
+        },
+        {
+            "column_id": 11,
+            "name": "Url",
+            "typeName": "nvarchar",
+            "max_length": 1000,
+            "precision": 0,
+            "scale": 0,
+            "is_nullable": true,
+            "default_value": null,
+            "is_unique": null,
+            "is_primary_key": false,
+            "enableInABC": null,
+            "typeName_display": "nvarchar(1000)",
+            "precision_display": "1000",
+            "table_name": "Item",
+            "DATA_TYPE": "Text",
+            "FORMATTING": "",
+            "ALIGN": "Left",
+            "ViewSecurityRightID": null,
+            "EditSecurityRightID": null,
+            "EditTableSecurityRightID": "dataadmin-item_edit",
+            "canEdit": true,
+            "IsKey": false,
+            "Condition": "and Number = '@Data.Number~'",
+            "isPriceColumn": null
+        }
+    ],
+    "Errors": [],
+    "Succeeded": true
 }
-```
 
-</ResponseExample>
+```
