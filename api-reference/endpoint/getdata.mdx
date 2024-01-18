@@ -16,8 +16,8 @@ POST {api_url}/api/tables/{TableName}
 POST {api_url}/api/tables/{TableName} HTTP/1.1
 
 Content-Type: application/json
-Authorization: Bearer {token}
-client_id: {unique client id}
+Authorization: Bearer {token} // or APIKey
+client_id: {unique client id} // when API key client id not needed 
 
 {
 	"page": 1,
