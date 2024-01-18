@@ -36,14 +36,11 @@
       "group": "Start",
       "pages": ["introduction"]
     },
+
     {
-      "group": "Quick Start",
-      "pages": ["quickstart/quickstart-1", "quickstart/quickstart-2", "quickstart/quickstart-3"]
-    },
-    {
-      "group": "Endpoint Examples",
+      "group": "API Documentation",
       "pages": [
-        "api-reference/endpoint/getmetadata","api-reference/endpoint/getdata","api-reference/endpoint/setdata", "api-reference/endpoint/tables"
+        "quickstart/quickstart-1","api-reference/endpoint/getmetadata","api-reference/endpoint/getdata","api-reference/endpoint/setdata", "api-reference/endpoint/tables"
       ]
     },
         {
