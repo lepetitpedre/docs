@@ -7,9 +7,9 @@ icon: file-import
 ### SET DATA
 
 Use this action to add or update values in tables. Limit to 
-2000 objects per request.
+2000 objects per request. In the example below we would insert and/or update two item_extension objects.
 
-Use the verb **PUT**
+Use the request method **PUT**
 
 ```Http
 PUT {api_url}/api/tables/{TableName} HTTP/1.1
@@ -19,10 +19,19 @@ Authorization: Bearer {token} //or APIKey
 client_id: {unique client id} //when API key client id not needed 
 
 
-[{
-    "cd_ItemNumber": "ABC123",
-    "Material": "Steel",
-    "Width": 10,
-    "Supplier": "Supplier Name"
-}]
+[
+    {
+        "cd_ItemNumber": "ABC123",
+        "Material": "Steel",
+        "Width": 10,
+        "Supplier": "Supplier Name"
+    },
+    {
+        "cd_ItemNumber": "ABC125",
+        "Material": "Alu",
+        "Width": 20,
+        "Supplier": "Supplier Name"
+    }
+
+]
 ```
