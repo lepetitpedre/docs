@@ -51,15 +51,21 @@ The response for a successful request would be
     "Succeeded": true
 }
 ```
-<Card title="Filter options" icon="filters" iconType="duotone" color="#ca8b04">
-Filter Options:
-</Card>
-
-
-``` Http
-
-
+<Card title="Filter operators" icon="filters">
+```
+<,>, !=, >=, <=, ContainsAny 
+(when using ContainsAny, "value": "Steel,Copper,Alu", is a comma separated list)
 ```
 
+</Card>
 
-~~~~
+<Tip>You can add several filter criteria in the same request. The exmaple below would give you all that has Cost greater than 100 and smaller than 200 </Tip>
+```JSON
+	"filters": [
+			{
+				"columnName": "Cost", "op":">", "value": "100.0"
+			},
+            		{
+				"columnName": "Cost", "op":"<", "value": "200.0"
+			}
+		]
