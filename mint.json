@@ -43,7 +43,7 @@
     {
       "group": "Endpoint Examples",
       "pages": [
-        "api-reference/endpoint/getemtadata","api-reference/endpoint/getdata","api-reference/endpoint/setdata", "api-reference/endpoint/tables"
+        "api-reference/endpoint/getmetadata","api-reference/endpoint/getdata","api-reference/endpoint/setdata", "api-reference/endpoint/tables"
       ]
     },
         {
