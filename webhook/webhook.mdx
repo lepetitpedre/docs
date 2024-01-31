@@ -11,6 +11,10 @@ It is an event-driven approach that ensures a service provider can send the righ
 ## How it works
 
 When an event is fired inside Price Edge that a webhook is registered to, a request will be sent to the registered endpoint with the following signature
+
+
+
+
 ```http
 POST {REGISTERED ENDPOINT} HTTP/1.1
 x-priceedge-webhook-signature: {SHA512 Signature}
@@ -58,7 +62,7 @@ OR
 ```
 
 ## Register a new web hook
-
+<Warning>If you choose "includeData": true, the max repsonse body size is 8000 chars, which can result in invalid JSON if longer </Warning>
 ``` Http
 PUT {api_url}/api/system/webhooks
 Content-Type: application/json
