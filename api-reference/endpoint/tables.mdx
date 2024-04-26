@@ -7,16 +7,23 @@ icon: table-columns
 ### Data tables end-points 
 
 ## 
+
+In PriceEdge, data is organized into "price objects." These objects comprise a primary table storing essential information, accompanied by a secondary table containing additional data referred to as "extensions." For instance, when adding items in PriceEdge, you first create the items (with their respective codes and names) in the items table. 
+
+Subsequently, after defining extensions (typically done within the PriceEdge UI), you update these extensions using the ItemExtensions table. This approach remains consistent when adding other entities such as price lists, customers, and more.
+
+
+
 The`{api_url}/api/tables/{tablename}`
 
 The end-point works as in previous example - General Set and Get data
+
 
 | tablename | description                            |
 | -------- | -------------------------------------              |
 | item               | Add and update items                     |
 | item_extension     | Add and update item extensions                         |
 | pricelist             | Add and update pricelist|
+| extension_pricelist             | Add and update pricelist extension|
 | customer            | Add and update customer|
 | extension_customer            | Add and update customer extensions|
-
-
