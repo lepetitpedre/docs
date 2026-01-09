@@ -3,12 +3,12 @@
   "//topbarLinks": [
     {
       "name": "Login",
-      "url": "https://priceedge.eu/login"
+      "url": "https://priceedge.com/login"
     }
   ],
   "topbarCtaButton": {
     "name": "Login",
-    "url": "https://priceedge.eu/login"
+    "url": "https://priceedge.com/login"
   },
   "//tabs": [
     {
