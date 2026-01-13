@@ -5,8 +5,24 @@
   "colors": {
     "primary": "#ff0000"
   },
-  "navigation": {
-    // Your navigation structure
-  }
-  // The rest of your configuration
+  "navigation": [
+    {
+      "group": "Start",
+      "pages": ["introduction"]
+    },
+
+    {
+      "group": "API Documentation",
+      "pages": [
+        "quickstart/quickstart-1","api-reference/endpoint/getmetadata","api-reference/endpoint/getdata","api-reference/endpoint/setdata", "api-reference/endpoint/tables"
+      ]
+    },
+        {
+      "group": "Webhooks",
+      "pages": [
+        "webhook/webhook", "webhook/webhooksecurity"
+      ]
+    }
+  ]
+
 }
